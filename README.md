@@ -79,36 +79,6 @@ Technology	Purpose
 Node.js	Backend server
 Express.js	API routes
 MongoDB	Database for appointments
-📂 Project Structure
-renal-bloom-website/
-│
-├── client/                # React frontend
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Topbar.jsx
-│   │   │   ├── HeroSlider.jsx
-│   │   │   └── Footer.jsx
-│   │   ├── pages/
-│   │   │   ├── Home.jsx
-│   │   │   ├── Services.jsx
-│   │   │   ├── Doctors.jsx
-│   │   │   ├── Appointment.jsx
-│   │   │   └── Contact.jsx
-│   │   └── utils/
-│   ├── tailwind.config.js
-│   ├── vite.config.js
-│   └── package.json
-│
-├── server/                # Backend (future use)
-│   └── index.js
-│
-└── README.md              # Project documentation
-
-📸 Preview Screenshots
-
-Add screenshots here after deployment or I can generate some for you.
 
 🛠️ Installation & Running Locally
 1️⃣ Clone the repository
