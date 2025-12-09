@@ -92,27 +92,4 @@ npm install
 npm run dev
 
 
-Your app will be live at:
 
-http://localhost:5173
-
-🌍 Deployment
-
-This project is prepared for deployment on:
-
-Vercel (recommended)
-
-Netlify
-
-GitHub Pages (React Router config needed)
-
-We will deploy it together when you're ready.
-
-👩‍💻 Author
-
-Monika Moanes
-Software Engineer
-📍 Cairo, Egypt
-🔗 GitHub: https://github.com/MonikaaMoanes
-
-🔗 Facebook Page: Renal Bloom Center
