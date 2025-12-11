@@ -1,11 +1,36 @@
 import { useState } from "react";
+import { createAppointment } from "../utils/api";
 
 export default function Appointment() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  // Stores all user inputs
+  const [form, setForm] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    service: "",
+    date: "",
+    time: "",
+    notes: ""
+  });
+
+  // Update form values on change
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  // Submit form to backend
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true); 
+    const response = await createAppointment(form);
+if (response.appointment && response.appointment._id) {
+  setSubmitted(true);
+} else {
+  console.log("Backend Response:", response); // helps debug
+  alert("Something went wrong. Try again.");
+}
+
   };
 
   return (
@@ -28,6 +53,9 @@ export default function Appointment() {
             <label className="text-primary font-medium mb-1">Full Name</label>
             <input
               type="text"
+              name="fullName"
+              value={form.fullName}
+              onChange={handleChange}
               required
               className="border border-primary/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="Enter your full name"
@@ -39,9 +67,11 @@ export default function Appointment() {
             <label className="text-primary font-medium mb-1">Phone Number</label>
             <input
               type="tel"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
               required
               className="border border-primary/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
-              placeholder="+20 12 81502260"
             />
           </div>
 
@@ -50,6 +80,9 @@ export default function Appointment() {
             <label className="text-primary font-medium mb-1">Email</label>
             <input
               type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
               className="border border-primary/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="example@email.com"
             />
@@ -59,14 +92,18 @@ export default function Appointment() {
           <div className="flex flex-col">
             <label className="text-primary font-medium mb-1">Select Service</label>
             <select
+              name="service"
+              value={form.service}
+              onChange={handleChange}
               className="border border-primary/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
             >
-              <option>Kidney Disease Treatment</option>
-              <option>Kidney Transplant Follow-Up</option>
-              <option>Dialysis Session</option>
-              <option>Ultrasound Imaging</option>
-              <option>Medical Laboratory</option>
-              <option>Specialty Clinics</option>
+              <option value="">Choose a service</option>
+              <option value="Kidney Disease Treatment">Kidney Disease Treatment</option>
+              <option value="Kidney Transplant Follow-Up">Kidney Transplant Follow-Up</option>
+              <option value="Dialysis Session">Dialysis Session</option>
+              <option value="Ultrasound Imaging">Ultrasound Imaging</option>
+              <option value="Medical Laboratory">Medical Laboratory</option>
+              <option value="Specialty Clinics">Specialty Clinics</option>
             </select>
           </div>
 
@@ -75,6 +112,9 @@ export default function Appointment() {
             <label className="text-primary font-medium mb-1">Preferred Date</label>
             <input
               type="date"
+              name="date"
+              value={form.date}
+              onChange={handleChange}
               className="border border-primary/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
             />
           </div>
@@ -84,6 +124,9 @@ export default function Appointment() {
             <label className="text-primary font-medium mb-1">Preferred Time</label>
             <input
               type="time"
+              name="time"
+              value={form.time}
+              onChange={handleChange}
               className="border border-primary/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
             />
           </div>
@@ -92,6 +135,9 @@ export default function Appointment() {
           <div className="flex flex-col md:col-span-2">
             <label className="text-primary font-medium mb-1">Notes (Optional)</label>
             <textarea
+              name="notes"
+              value={form.notes}
+              onChange={handleChange}
               rows="4"
               className="border border-primary/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="Describe your symptoms or any details..."
@@ -104,6 +150,7 @@ export default function Appointment() {
           >
             Submit Appointment Request
           </button>
+
         </form>
       ) : (
         <div className="bg-white p-10 rounded-xl shadow-md text-center">

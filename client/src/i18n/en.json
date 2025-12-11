@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "doctors": "Doctors",
+    "contact": "Contact",
+    "about": "About"
+  },
+  "topbar": {
+    "book": "Book Appointment",
+    "phone": "+20 12 81502260"
+  },
+  "home": {
+    "welcome": "Welcome to Renal Bloom Center",
+    "about": "At Renal Bloom Center, we combine advanced kidney healthcare with a calm healing environment designed for your comfort.",
+    "book": "Book an Appointment"
+  }
+}
