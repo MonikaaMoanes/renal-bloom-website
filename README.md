@@ -1,95 +1,79 @@
-🌿 Renal Bloom Center – Medical Website
+# 🏥 Renal Bloom – Medical Appointment Booking System
 
-A modern, responsive medical clinic website built using React + Vite, TailwindCSS, and Swiper.js.
-This project is designed for a nephrology / kidney health center, with a clean interface, appointment booking, multi-language support, and reusable components.
+Renal Bloom is a full-stack medical website designed for clinics to manage patient appointments efficiently.  
+It includes a patient-facing website, appointment booking form, and a secure admin dashboard to manage all bookings.
 
-🚀 Live Demo
+This project was built using **React**, **Node.js**, **Express**, and **MongoDB**.
 
-👉 Coming Soon (Deployment planned on Vercel)
+---
 
-🏥 Overview
+## 🚀 Live Demo
+Frontend: https://monikaamoanes.github.io/renal-bloom-website/  
+Backend: (Coming soon after deployment)
 
-Renal Bloom Center is a full medical website built to showcase services, doctors, contact details, and appointment booking for a nephrology center.
-The goal is to create a professional and calming medical brand with high-quality UI, responsive layout, and modern animations.
+---
 
-✨ Features
-🎨 Frontend
+## ⭐ Features
 
-Responsive UI using TailwindCSS
+### 🧑‍⚕️ Patient Website
+- Beautiful, responsive UI  
+- View services and doctors  
+- Book an appointment online  
+- Multi-language support (English / Arabic)  
+- Automatically saves appointment into database  
 
-Hero image slider with Swiper.js
+### 🔐 Admin Panel
+- Secure admin login  
+- View all appointments  
+- Change appointment status:  
+  - Pending  
+  - Confirmed  
+  - Cancelled  
+  - Completed  
+- Automatic email confirmations *(coming soon)*  
 
-Clean and modern medical design
+### 🗄️ Backend & Database
+- REST API built with Express  
+- MongoDB database with Mongoose models  
+- Appointment, User, Doctor, and Service models  
+- JSON Web Token (JWT) authentication  
+- Protected admin routes  
 
-Animated hero section
+---
 
-Reusable components:
+## 🛠️ Tech Stack
 
-Navbar
+### Frontend
+- React (Vite)
+- Tailwind CSS
+- React Router
+- Context API (Auth)
 
-Topbar
+### Backend
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT (Authentication)
+- Nodemailer *(optional for emails)*
 
-Footer
+---
 
-HeroSlider
+## 📄 API Endpoints (Summary)
 
-Cards (Services, Doctors)
+### **Auth**
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register user (admin only) |
+| POST | `/api/auth/login` | Login and receive JWT |
 
-Service listing page
+### **Appointments**
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/appointments` | Create new patient appointment |
+| GET | `/api/appointments` | Get all appointments (admin only) |
+| GET | `/api/appointments/me` | Get user's appointments |
+| PUT | `/api/appointments/:id/status` | Update appointment status (admin only) |
 
-Doctors page
-
-Contact page with Google Maps embed
-
-Appointment page with form
-
-Multi-language support (EN / AR) — partially implemented
-
-📍 Contact & Location
-
-Clinic address integrated with Google Maps Embed API
-
-Click-to-call phone number
-
-Social media links
-
-🔧 Backend (Planned / Placeholder)
-
-A server/ folder exists for future backend features:
-
-Appointment saving
-
-Email notifications
-
-Admin panel
-
-Patient management
-
-🖥️ Tech Stack
-Frontend
-Technology	Purpose
-React + Vite	Fast development environment
-TailwindCSS	Styling / layout
-Swiper.js	Hero slider with transitions
-React Router	Page navigation
-React Icons	Icons for UI
-Google Maps Embed	Location map
-Backend (optional/coming soon)
-Technology	Purpose
-Node.js	Backend server
-Express.js	API routes
-MongoDB	Database for appointments
-
-🛠️ Installation & Running Locally
-1️⃣ Clone the repository
-git clone https://github.com/MonikaaMoanes/renal-bloom-website.git
-
-2️⃣ Install dependencies
-cd client
-npm install
-
-3️⃣ Run development server
-npm run dev
-
+---
 
 
