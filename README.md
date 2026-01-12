@@ -54,7 +54,7 @@ Backend: (Coming soon after deployment)
 - Express.js
 - MongoDB + Mongoose
 - JWT (Authentication)
-- Nodemailer *(optional for emails)*
+
 
 ---
 
