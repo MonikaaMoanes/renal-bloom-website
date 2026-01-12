@@ -15,13 +15,42 @@ export const loginUser = async (email, password) => {
 };
 
 export const createAppointment = async (appointmentData) => {
-  // Send the form data to the backend as JSON
   const res = await fetch("http://localhost:5000/api/appointments", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(appointmentData), 
+    body: JSON.stringify(appointmentData),
   });
 
-  return res.json(); // Return the response from the backend
+  return res.json();
 };
+
+export const getAllAppointments = async () => {
+  const token = localStorage.getItem("token");
+
+  const res = await fetch("http://localhost:5000/api/appointments", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return res.json();
+};
+
+export const updateAppointmentStatus = async (id, status) => {
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`http://localhost:5000/api/appointments/${id}/status`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({ status })
+  });
+
+  return res.json();
+};
+
 
